@@ -1,19 +1,10 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-public class User {
+public abstract class Users{
     private int userId;
     private String username;
     private String email;
     private String password;
-    private List<User> userList = new ArrayList<>();
-
-    public void addToUserList(User user){
-        userList.add(user);
-    }
 
     public int getUserId() {
         return userId;
