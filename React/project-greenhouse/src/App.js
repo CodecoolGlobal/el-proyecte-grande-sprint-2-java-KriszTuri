@@ -2,6 +2,7 @@ import './App.css';
 import FetchData from './FetchData';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Header, Footer } from './components/common'
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -9,7 +10,11 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        <Route path="/users">
           <FetchData />
         </Route>
       </Switch>
