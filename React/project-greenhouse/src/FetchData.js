@@ -16,8 +16,6 @@ const [users, setUsers] = useState(null);
     })
   }, [])
 
-  console.log(users)
-
   return (
     <div className="App">
       <header className="App-header">
