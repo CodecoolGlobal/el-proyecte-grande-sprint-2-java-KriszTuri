@@ -5,13 +5,13 @@ import java.util.Map;
 
 
 public class Users extends User {
-    private ArrayList<Map> userList = new ArrayList<>();
+    private ArrayList<Map<String, String>> userList = new ArrayList<>();
 
-    public void addToUserList(Map user){
+    public void addToUserList(Map<String, String> user){
         userList.add(user);
     }
 
-    public ArrayList<Map> returnUserList(){
+    public ArrayList<Map<String, String>> returnUserList(){
         return userList;
     }
 }
