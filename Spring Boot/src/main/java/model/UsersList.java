@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 
-public class Users extends User {
+public class UsersList extends User {
     private ArrayList<Map<String, String>> userList = new ArrayList<>();
 
     public void addToUserList(Map<String, String> user){

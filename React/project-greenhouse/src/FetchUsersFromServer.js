@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import UserList from './UserList';
 
 
-function FetchData(){
+function FetchUsersFromServer(){
 const [users, setUsers] = useState(null);
 
   useEffect(() => {
@@ -24,4 +24,4 @@ const [users, setUsers] = useState(null);
     </div>
   );
 }
-export default FetchData;
+export default FetchUsersFromServer;

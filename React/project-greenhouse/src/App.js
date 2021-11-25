@@ -1,8 +1,9 @@
 import './App.css';
-import FetchData from './FetchData';
+import FetchRandomUsers from './FetchRandomUsers';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Header, Footer } from './components/common'
-import Home from './pages/Home';
+import Home from './Home';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         </Route>
 
         <Route path="/users">
-          <FetchData />
+          <FetchRandomUsers/>
         </Route>
       </Switch>
       <Footer />

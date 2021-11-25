@@ -9,7 +9,6 @@ public class UserRegister {
     }
 
     public boolean addUser(){
-        System.out.println("Method called!");
         return true;
     }
 }
