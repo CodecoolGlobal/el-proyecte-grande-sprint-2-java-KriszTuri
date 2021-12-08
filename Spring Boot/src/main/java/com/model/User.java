@@ -1,16 +1,21 @@
-package model;
+package com.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public abstract class User{
-    private int userId;
+    @Id
+    private Long userId;
     private String username;
     private String email;
     private String password;
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
