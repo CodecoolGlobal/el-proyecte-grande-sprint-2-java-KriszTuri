@@ -3,14 +3,27 @@ package com.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-public abstract class User{
+public class User{
     @Id
     private Long userId;
     private String username;
     private String email;
     private String password;
 
+    
+    public User(){
+        super();
+    }
+
+    public User(Long userId, String username, String email, String password){
+        this.userId = userId;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
     public Long getUserId() {
         return userId;
     }

@@ -1,26 +1,43 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import UserList from './UserList';
+import axios from 'axios';
 
 
 function FetchRandomUsers(){
 const [users, setUsers] = useState(null);
-
   useEffect(() => {
-    fetch("https://api.randomuser.me/?results=5")
+    axios.get("https://random-data-api.com/api/users/random_user")
     .then(response => {
-      return response.json()
-    })
-    .then(data => {
-      setUsers(data.results)
+      /*let userArray=[];
+      for(let i=0; i<5; i++){
+        const newUser = {
+          userId: i,
+          username: response.data[i].username,
+          email: response.data[i].email,
+          password: response.data[i].password
+        }*/
+        //userArray.push(JSON.stringify(newUser));
+        const newUser = {
+          userId: "1",
+          username: response.data.username,
+          email: response.data.email,
+          password: response.data.password
+        }
+        let Json = JSON.stringify(newUser)
+        setUsers(Json)
+        let axiosConfig = {
+          headers: {
+              'Content-Type': 'application/json;charset=UTF-8',
+              "Access-Control-Allow-Origin": "*",
+          }
+        };
+        axios.post('localhost:8080/users/fetched', users, axiosConfig);
     })
   }, [])
-
+  console.log(users)
   return (
-    <div className="App">
-      <header className="App-header">
-        {users && <UserList users={users}/>}
-      </header>
+    <div>
+      
     </div>
   );
 }
