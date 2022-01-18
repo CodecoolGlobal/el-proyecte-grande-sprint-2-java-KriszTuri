@@ -31,7 +31,7 @@ const [users, setUsers] = useState(null);
               "Access-Control-Allow-Origin": "*",
           }
         };
-        axios.post('localhost:8080/users/fetched', users, axiosConfig);
+        axios.post('localhost:8080/users/fetched', Json, axiosConfig);
     })
   }, [])
   console.log(users)

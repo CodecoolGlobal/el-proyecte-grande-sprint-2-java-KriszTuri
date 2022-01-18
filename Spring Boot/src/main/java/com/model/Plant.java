@@ -6,21 +6,44 @@ import javax.persistence.Id;
 @Entity
 public class Plant {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long plantId;
     private String name;
+    private String careDifficulty;
     
-    
+    public Plant(){}
+
+    public Plant(PlantBuilder plantBuilder){
+        this.name = plantBuilder.name;
+        this.careDifficulty = plantBuilder.careDifficulty; 
+    }
+
     public String getName() {
         return name;
     }
     public Long getPlantID() {
         return plantId;
     }
-    public void setPlantID(Long plantId) {
-        this.plantId = plantId;
-    }
-    public void setName(String name) {
-        this.name = name;
+
+    public static class PlantBuilder{
+        private Long plantId;
+        private String name;
+        private String careDifficulty;
+
+        public PlantBuilder plantId(Long plantId){
+            this.plantId = plantId;
+            return this;
+        }
+
+        public PlantBuilder name(String name){
+            this.name = name;
+            return this;
+        }
+
+        public PlantBuilder careDifficulty(String careDifficulty){
+            this.careDifficulty = careDifficulty;
+            return this;
+        }
     }
     
 }
