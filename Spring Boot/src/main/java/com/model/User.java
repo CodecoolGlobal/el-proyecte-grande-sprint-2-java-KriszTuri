@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,13 +24,8 @@ public class User{
         this.email = userBuilder.email;
         this.password = userBuilder.password;
     }
-
-    /*public User(Long userId, String username, String email, String password){
-        this.userId = userId;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }*/
+    
+    
     public Long getUserId() {
         return userId;
     }
@@ -63,6 +60,10 @@ public class User{
         public UserBuilder password(String password){
             this.password = password;
             return this;
+        }
+
+        public User build(){
+            return new User(this);
         }
     }
 }

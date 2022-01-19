@@ -1,6 +1,10 @@
 package com.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -9,7 +13,9 @@ public class Plant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long plantId;
     private String name;
+    //NOTE: enum?
     private String careDifficulty;
+    
     
     public Plant(){}
 
@@ -21,19 +27,14 @@ public class Plant {
     public String getName() {
         return name;
     }
+
     public Long getPlantID() {
         return plantId;
     }
 
     public static class PlantBuilder{
-        private Long plantId;
         private String name;
         private String careDifficulty;
-
-        public PlantBuilder plantId(Long plantId){
-            this.plantId = plantId;
-            return this;
-        }
 
         public PlantBuilder name(String name){
             this.name = name;
@@ -43,6 +44,10 @@ public class Plant {
         public PlantBuilder careDifficulty(String careDifficulty){
             this.careDifficulty = careDifficulty;
             return this;
+        }
+
+        public Plant build(){
+            return new Plant(this);
         }
     }
     

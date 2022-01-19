@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.model.Listing;
-import com.model.repositories.ListingsRepository;
+import com.model.repositories.ListingRepository;
 
 @Service
 public class ListingService {
-    private ListingsRepository listingsRepository;
+    private ListingRepository listingsRepository;
 
     public List<Listing> getAllListings(){
         List<Listing> listings = new ArrayList<>();
