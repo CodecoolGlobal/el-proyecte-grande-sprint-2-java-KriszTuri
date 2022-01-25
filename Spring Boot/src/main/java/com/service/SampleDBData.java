@@ -1,13 +1,8 @@
 package com.service;
 
-import java.util.List;
-
 import com.model.Listing;
-import com.model.Lists;
 import com.model.Plant;
-import com.model.PostingDate;
 import com.model.User;
-import com.model.Listing.ListingBuilder;
 import com.model.repositories.ListingRepository;
 import com.model.repositories.PlantRepository;
 import com.model.repositories.UserRepository;

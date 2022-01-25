@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -56,11 +55,11 @@ public class UserController {
         return new ResponseEntity<>(userService.getUserById(id),HttpStatus.OK);
     }
 
-    @RequestMapping("/register")
-    @ResponseBody
+    @PostMapping("/register")
+    @CrossOrigin
     public void registerUser(@RequestBody User user){
         userService.addUser(user);
-        //System.out.println(user);
+        System.out.println(user.getUsername());
     }
     
 }
