@@ -31,6 +31,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/")
+    public String welcome(){
+        return "Sup bro!";
+    }
+
     @GetMapping("/users")
     @CrossOrigin
     public List<User> getAllUsers(){
