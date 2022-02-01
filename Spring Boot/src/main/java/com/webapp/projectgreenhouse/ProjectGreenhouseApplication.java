@@ -11,9 +11,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
-@SpringBootApplication(scanBasePackages = {"com.controller", "com.model", "com.service"})
+@SpringBootApplication(scanBasePackages = {"com.controller", "com.model", "com.service", "com.configuration"})
 @EntityScan({"com.model"})
 @EnableJpaRepositories(basePackages = {"com.model.repositories"})
 public class ProjectGreenhouseApplication {
@@ -29,13 +28,5 @@ public class ProjectGreenhouseApplication {
     public void fillDatabase() {
         sampleDBData.createSampleData();
     }
-
-    /*protected void configure(HttpSecurity http) throws Exception{
-        http
-        .csrf().disable()
-        .httpBasic().disable()
-        .authorizeRequests().antMatchers("/**").permitAll();
-
-    }*/
 
 }

@@ -15,6 +15,8 @@ public class User{
     private String username;
     private String email;
     private String password;
+    private String roles;
+    private boolean isActive;
 
     public User(){
     }
@@ -23,6 +25,8 @@ public class User{
         this.username = userBuilder.username;
         this.email = userBuilder.email;
         this.password = userBuilder.password;
+        this.roles = userBuilder.roles;
+        this.isActive = userBuilder.isActive;
     }
     
     
@@ -42,10 +46,20 @@ public class User{
         return password;
     }
 
+    public String getRoles(){
+        return roles;
+    }
+
+    public boolean isActive(){
+        return isActive;
+    }
+
     public static class UserBuilder{
         private String username;
         private String email;
         private String password;
+        private String roles;
+        private boolean isActive;
 
         public UserBuilder username(String username){
             this.username = username;
@@ -59,6 +73,16 @@ public class User{
 
         public UserBuilder password(String password){
             this.password = password;
+            return this;
+        }
+
+        public UserBuilder roles(String roles){
+            this.roles = roles;
+            return this;
+        }
+
+        public UserBuilder isActive(boolean isActive){
+            this.isActive = isActive;
             return this;
         }
 
