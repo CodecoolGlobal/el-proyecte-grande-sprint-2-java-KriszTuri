@@ -34,6 +34,11 @@ public class UserController {
         return "Sup bro!";
     }
 
+    /*@GetMapping("/login-page")
+    public String loginPage(){
+        return "Login page";
+    }*/
+
     @GetMapping("/users")
     @CrossOrigin
     public List<User> getAllUsers(){

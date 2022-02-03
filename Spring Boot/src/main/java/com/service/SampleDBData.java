@@ -1,5 +1,6 @@
 package com.service;
 
+import com.configuration.PasswordEncoderClass;
 import com.model.Listing;
 import com.model.Plant;
 import com.model.User;
@@ -15,17 +16,19 @@ public class SampleDBData {
     private final UserRepository userRepository;
     private final PlantRepository plantRepository;
     private final ListingRepository listingRepository;
+    private final PasswordEncoderClass passwordEncoder;
 
     @Autowired
-    public SampleDBData(UserRepository userRepository, PlantRepository plantRepository, ListingRepository listingRepository){
+    public SampleDBData(UserRepository userRepository, PlantRepository plantRepository, ListingRepository listingRepository, PasswordEncoderClass passwordEncoder){
         this.userRepository = userRepository;
         this.plantRepository = plantRepository;
         this.listingRepository = listingRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public void createSampleData(){
-        User user1 = new User.UserBuilder().username("user1").email("user1@mail.com").password("pass123").roles("ROLE_USER").isActive(true).build();
-        User user2 = new User.UserBuilder().username("user2").email("user2@mail.com").password("pass345").roles("ROLE_USER, ROLE_ADMIN").isActive(true).build();
+        User user1 = new User.UserBuilder().username("user1").email("user1@mail.com").password(passwordEncoder.getPasswordEncoder().encode("pass123")).roles("ROLE_USER").isActive(true).build();
+        User user2 = new User.UserBuilder().username("user2").email("user2@mail.com").password(passwordEncoder.getPasswordEncoder().encode("pass345")).roles("ROLE_USER, ROLE_ADMIN").isActive(true).build();
         user1 = userRepository.saveAndFlush(user1);
         user2 = userRepository.saveAndFlush(user2);
 

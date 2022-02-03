@@ -1,12 +1,11 @@
 package com.configuration;
 
-import javax.activation.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,16 +29,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         /*.csrf().disable()
         .httpBasic().disable()*/
         .authorizeRequests()
-        .mvcMatchers("/users").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
-        .mvcMatchers("/login").permitAll()
-        .mvcMatchers("/register").permitAll()
-        .mvcMatchers("/h2-console/**").permitAll()
-        .mvcMatchers("/").permitAll()
-        .and().formLogin();
+            .antMatchers("/users").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
+            .antMatchers("/login").permitAll()
+            .antMatchers("/register").permitAll()
+            .antMatchers("/").permitAll()
+            .and().formLogin();
+            //.loginPage("/login-page");
+
     }
 
-    @Bean
-    public PasswordEncoder getPasswordEncoder(){
-        return new BCryptPasswordEncoder();
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/h2-console/**");
     }
+
+
 }
