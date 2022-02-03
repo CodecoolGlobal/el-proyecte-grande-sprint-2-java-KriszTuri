@@ -2,10 +2,7 @@ package com.webapp.projectgreenhouse;
 
 import javax.annotation.PostConstruct;
 
-import com.configuration.SecurityConfiguration;
 import com.service.SampleDBData;
-
-import org.apache.catalina.security.SecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

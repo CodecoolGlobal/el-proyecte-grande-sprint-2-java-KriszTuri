@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .mvcMatchers("/users").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
         .mvcMatchers("/login").permitAll()
         .mvcMatchers("/register").permitAll()
-        .mvcMatchers("/api").permitAll()
+        .mvcMatchers("/h2-console/**").permitAll()
         .mvcMatchers("/").permitAll()
         .and().formLogin();
     }
