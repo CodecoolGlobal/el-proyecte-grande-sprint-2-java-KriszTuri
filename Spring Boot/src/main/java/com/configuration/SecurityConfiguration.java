@@ -29,12 +29,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         /*.csrf().disable()
         .httpBasic().disable()*/
         .authorizeRequests()
-            .antMatchers("/users").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
-            .antMatchers("/login").permitAll()
-            .antMatchers("/register").permitAll()
-            .antMatchers("/").permitAll()
+            .antMatchers("/users/**").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
+            .antMatchers("/login/**").permitAll()
+            .antMatchers("/register/**").permitAll()
+            .antMatchers("/**").permitAll()
             .and().formLogin();
-            //.loginPage("/login-page");
+            /*.loginPage("/login-page") 
+              .defaultSuccessUrl("/successful-login")
+              .loginProcessingUrl("/login")
+            .failureUrl("/error-login");*/
 
     }
 
